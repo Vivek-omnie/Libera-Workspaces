@@ -9,12 +9,6 @@ export class WorkSpace {
   name: string;
 
   @Prop()
-  registration_key: string;
-
-  @Prop()
-  password:string;
-
-  @Prop()
   isActive:boolean;
 
   @Prop()

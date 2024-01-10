@@ -195,8 +195,6 @@ function App() {
             <h2 style={{ textTransform: "uppercase" }}>
               {selectedRecord?.name}
             </h2>
-            <p>Registration Code: {selectedRecord?.registration_key}</p>
-            <p>Password: {selectedRecord?.password}</p>
             <p>Using Now: {selectedRecord?.your_name}</p>
             <p>Available: {selectedRecord?.isActive ? "🔴" : "🟢"}</p>
             <button
