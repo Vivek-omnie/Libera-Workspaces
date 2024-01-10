@@ -16,7 +16,7 @@ export const Update = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/workspace/${_id}`,
+        `https://libera-workspace-server.zeabur.app/workspace/${_id}`,
         {
           your_name: your_name,
           isActive: your_name ? true : false,
