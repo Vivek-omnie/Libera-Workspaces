@@ -123,7 +123,7 @@ function App() {
     const searchTerm = event.target.value.toLowerCase();
 
     if (searchTerm.trim() === "") {
-      fetch("http://localhost:3000/workspace")
+      fetch("https://libera-workspace-server.zeabur.app/workspace")
         .then((response) => response.json())
         .then((json) => setRecords(json));
     } else {
@@ -136,7 +136,7 @@ function App() {
 
   // CONNECTION WITH API
   useEffect(() => {
-    fetch("http://localhost:3000/workspace")
+    fetch("https://libera-workspace-server.zeabur.app/workspace")
       .then((response) => response.json())
       .then((json) => setRecords(json));
   }, []);
@@ -154,7 +154,7 @@ function App() {
   const handleDelete = async () => {
     if (selectedRecord) {
       try {
-        await fetch(`http://localhost:3000/workspace/${selectedRecord._id}`, {
+        await fetch(`https://libera-workspace-server.zeabur.app/workspace/${selectedRecord._id}`, {
           method: "DELETE",
         });
         // Refresh records after deletion
