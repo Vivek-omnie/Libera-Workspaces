@@ -123,7 +123,7 @@ function App() {
     const searchTerm = event.target.value.toLowerCase();
 
     if (searchTerm.trim() === "") {
-      fetch("https://libera-workspace-server.zeabur.app/workspace")
+      fetch("https://workspaces-server.zeabur.app/workspace")
         .then((response) => response.json())
         .then((json) => setRecords(json));
     } else {
