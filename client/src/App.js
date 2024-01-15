@@ -195,7 +195,7 @@ function App() {
             <h2 style={{ textTransform: "uppercase" }}>
               {selectedRecord?.name}
             </h2>
-            <p>Are You Sure You Want to Delete It??</p>
+            <b><p>Are You Sure You Want to Delete It??</p></b>
             <div style={styles.popupbtn}>
               <button
                 onClick={handleDelete}
