@@ -70,12 +70,12 @@ export const Update = () => {
       </div>
       <div className="submit-buttons">
         <input
-          ref={submitButtonRef}
+          
           type="submit"
           value="Back"
           onClick={() => navigate("/")}
         />
-        <input type="submit" value="Submit" />
+        <input ref={submitButtonRef} type="submit" value="Submit" />
       </div>
       {response && <p> {"WorkSpace Updated"}</p>}
     </form>
