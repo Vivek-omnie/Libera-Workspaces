@@ -16,7 +16,7 @@ export const Update = () => {
 
     try {
       const response = await axios.put(
-        `https://workspaces-server.zeabur.app/workspace/${_id}`,
+        `${process.env.REACT_APP_API_URL}/${_id}`,
         {
           your_name: your_name,
           isActive: your_name ? true : false,

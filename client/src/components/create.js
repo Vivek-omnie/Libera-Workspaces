@@ -14,7 +14,7 @@ export const Create = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://workspaces-server.zeabur.app/workspace/create",
+        `${process.env.REACT_APP_API_URL}/create`,
         {
           name: name,
           isActive: isActive,

@@ -15,7 +15,7 @@ export const Updatefull = () => {
 
     try {
       const response = await axios.put(
-        `https://workspaces-server.zeabur.app/workspace/update/${_id}`,
+        `${process.env.REACT_APP_API_URL}/update/${_id}`,
         {
           name: name,
         }
