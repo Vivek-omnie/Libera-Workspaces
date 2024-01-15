@@ -123,7 +123,7 @@ function App() {
     const searchTerm = event.target.value.toLowerCase();
 
     if (searchTerm.trim() === "") {
-      fetch("https://workspaces-server.zeabur.app/workspace")
+      fetch(`${process.env.REACT_APP_API_URL}`)
         .then((response) => response.json())
         .then((json) => setRecords(json));
     } else {
@@ -136,7 +136,7 @@ function App() {
 
   // CONNECTION WITH API
   useEffect(() => {
-    fetch("https://workspaces-server.zeabur.app/workspace")
+    fetch(`${process.env.REACT_APP_API_URL}`)
       .then((response) => response.json())
       .then((json) => setRecords(json));
   }, []);
@@ -154,7 +154,7 @@ function App() {
   const handleDelete = async () => {
     if (selectedRecord) {
       try {
-        await fetch(`https://https://workspaces.zeabur.app/workspace/${selectedRecord._id}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/${selectedRecord._id}`, {
           method: "DELETE",
         });
         // Refresh records after deletion
