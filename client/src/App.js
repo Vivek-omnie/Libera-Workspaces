@@ -70,7 +70,7 @@ function App() {
             }
             onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            Update Status
+            🆕 Update Status
           </button>
         </Link>
       ),
@@ -86,7 +86,7 @@ function App() {
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
-          👁️View More
+          🗑️ DELETE
         </button>
       ),
       ignoreRowClick: true,
@@ -104,7 +104,7 @@ function App() {
             }
             onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            Update
+            🔄 Update
           </button>
         </Link>
       ),
@@ -195,24 +195,23 @@ function App() {
             <h2 style={{ textTransform: "uppercase" }}>
               {selectedRecord?.name}
             </h2>
-            <p>Using Now: {selectedRecord?.your_name}</p>
-            <p>Available: {selectedRecord?.isActive ? "🔴" : "🟢"}</p>
-            <button
-              style={{
-                backgroundColor: "#ff6347",
-                color: "#fff",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                border: "none",
-                cursor: "pointer",
-                transition: "background-color 0.3s ease-in-out",
-                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-                outline: "none",
-              }}
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
+            <p>Are You Sure You Want to Delete It??</p>
+            <div style={styles.popupbtn}>
+              <button
+                onClick={handleDelete}
+                style={{ ...styles.deleteButton,}}
+              >
+                Delete
+              </button>
+
+              <button
+                className="no-button"
+                onClick={() => setShowModal(false)}
+                style={styles.noButton}
+              >
+                NO
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -321,7 +320,7 @@ const styles = {
     fontWeight: "600",
   },
   primaryButton: {
-    backgroundColor: "#007bff",
+    backgroundColor: "#d11a2a",
     color: "#fff",
     marginLeft: "-130px",
   },
@@ -358,6 +357,34 @@ const styles = {
     letterSpacing: "0.5px",
     fontSize: "0.9rem",
     color: "#52616b",
+    transition: "background-color 0.3s ease-in-out",
+  },
+
+  popupBtn: {
+    display: "flex",
+    gap: "5rem",
+  },
+
+  deleteButton: {
+    backgroundColor: "#d11a2a",
+    color: "#fff",
+    padding: "10px 20px",
+    borderRadius: "8px",
+    border: "none",
+    cursor: "pointer",
+    transition: "background-color 0.3s ease-in-out",
+    gap:"1rem"
+  },
+
+  noButton: {
+    backgroundColor: "#007bff",
+    color: "#fff",
+    marginTop:"60px",
+    marginLeft:"20px",
+    padding: "10px 30px",
+    borderRadius: "8px",
+    border: "none",
+    cursor: "pointer",
     transition: "background-color 0.3s ease-in-out",
   },
 };
