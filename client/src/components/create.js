@@ -14,7 +14,7 @@ export const Create = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://libera-workspace-server.zeabur.app/workspace/create",
+        "https://workspaces-server.zeabur.app/workspace/create",
         {
           name: name,
           isActive: isActive,
