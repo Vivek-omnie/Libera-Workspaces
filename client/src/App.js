@@ -7,7 +7,7 @@ function App() {
   // DATA TO BE ENTERD
   const columns = [
     {
-      name: "Name",
+      name: "UserName",
       selector: (row) => row.name,
       sortable: true,
       cell: (row) => <span className="blurred">{row.name}</span>,
@@ -17,7 +17,7 @@ function App() {
         padding: "15px 20px",
         borderBottom: "3px solid #e1e8ed",
         textAlign: "left",
-        textTransform: "uppercase",
+        textTransform: "lowercase",
         letterSpacing: "0.5px",
         fontSize: "0.9rem",
         color: "#52616b",
@@ -157,12 +157,12 @@ function App() {
         await fetch(`${process.env.REACT_APP_API_URL}/${selectedRecord._id}`, {
           method: "DELETE",
         });
-        // Refresh records after deletion
+        
         const updatedRecords = records.filter(
           (record) => record._id !== selectedRecord._id
         );
         setRecords(updatedRecords);
-        setShowModal(false); // Close modal after deletion if needed
+        setShowModal(false);
       } catch (error) {
         console.error("Error deleting record:", error);
       }
