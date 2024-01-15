@@ -136,7 +136,7 @@ function App() {
 
   // CONNECTION WITH API
   useEffect(() => {
-    fetch("https://libera-workspace-server.zeabur.app/workspace")
+    fetch("https://workspaces-server.zeabur.app/workspace")
       .then((response) => response.json())
       .then((json) => setRecords(json));
   }, []);
