@@ -154,7 +154,7 @@ function App() {
   const handleDelete = async () => {
     if (selectedRecord) {
       try {
-        await fetch(`https://libera-workspace-server.zeabur.app/workspace/${selectedRecord._id}`, {
+        await fetch(`https://https://workspaces.zeabur.app/workspace/${selectedRecord._id}`, {
           method: "DELETE",
         });
         // Refresh records after deletion
