@@ -70,7 +70,7 @@ function App() {
             }
             onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            🆕 Update Status
+             🔄Update Status
           </button>
         </Link>
       ),
@@ -104,7 +104,7 @@ function App() {
             }
             onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            🔄 Update
+             🆕Update
           </button>
         </Link>
       ),
