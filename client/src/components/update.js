@@ -47,6 +47,7 @@ export const Update = () => {
 
   return (
     <form onSubmit={postData}>
+    <h2 style={{textAlign:"center"}}>Enter Your Name</h2>
       <label>
         Your Name:
         <input
