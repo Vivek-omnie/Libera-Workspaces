@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import "./App.css";
 import DataTable from "react-data-table-component";
 import { Link } from "react-router-dom";
@@ -168,6 +168,22 @@ function App() {
       }
     }
   };
+const deleteButtonRef = useRef(null);
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        console.log("Enter key was pressed. Run your function.");
+        event.preventDefault();
+        // postData()
+        deleteButtonRef.current.click();
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, []);
 
   // OUTPUT
   return (
@@ -198,6 +214,7 @@ function App() {
             <b><p>Are You Sure You Want to Delete It??</p></b>
             <div style={styles.popupbtn}>
               <button
+                ref={deleteButtonRef}
                 onClick={handleDelete}
                 style={{ ...styles.deleteButton,}}
               >
