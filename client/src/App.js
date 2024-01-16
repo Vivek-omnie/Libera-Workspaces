@@ -157,12 +157,12 @@ function App() {
         await fetch(`${process.env.REACT_APP_API_URL}/${selectedRecord._id}`, {
           method: "DELETE",
         });
-        // Refresh records after deletion
+        
         const updatedRecords = records.filter(
           (record) => record._id !== selectedRecord._id
         );
         setRecords(updatedRecords);
-        setShowModal(false); // Close modal after deletion if needed
+        setShowModal(false);
       } catch (error) {
         console.error("Error deleting record:", error);
       }
@@ -173,9 +173,9 @@ const deleteButtonRef = useRef(null);
   useEffect(() => {
     const listener = (event) => {
       if (event.code === "Enter" || event.code === "NumpadEnter") {
-        console.log("Enter key was pressed. Run your function.");
+        
         event.preventDefault();
-        // postData()
+        
         deleteButtonRef.current.click();
       }
     };
