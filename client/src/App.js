@@ -104,7 +104,7 @@ function App() {
             }
             onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-             🆕Update
+             🆕UPDATE
           </button>
         </Link>
       ),
