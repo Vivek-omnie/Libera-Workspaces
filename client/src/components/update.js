@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./create.css";
 // import Switch from "@mui/material/Switch";
@@ -10,6 +10,7 @@ export const Update = () => {
   const [your_name, setyour_name] = useState("");
   const [isActive] = useState(false);
   const [response, setResponse] = useState("");
+  const submitButtonRef = useRef(null);
 
   const postData = async (event) => {
     event.preventDefault();
@@ -29,8 +30,24 @@ export const Update = () => {
     }
   };
 
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+    
+        event.preventDefault();
+       
+        submitButtonRef.current.click();
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, []);
+
   return (
     <form onSubmit={postData}>
+    <h2 style={{textAlign:"center"}}>Enter Your Name</h2>
       <label>
         Your Name:
         <input
@@ -53,8 +70,13 @@ export const Update = () => {
         </label> */}
       </div>
       <div className="submit-buttons">
-        <input type="submit" value="Back" onClick={() => navigate("/")} />
-        <input type="submit" value="Submit" />
+        <input
+          
+          type="submit"
+          value="Back"
+          onClick={() => navigate("/")}
+        />
+        <input ref={submitButtonRef} type="submit" value="Submit" />
       </div>
       {response && <p> {"WorkSpace Updated"}</p>}
     </form>

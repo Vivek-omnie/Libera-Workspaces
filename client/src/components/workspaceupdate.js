@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import axios from "axios";
 import "./create.css";
 // import Switch from "@mui/material/Switch";
@@ -9,6 +9,7 @@ export const Updatefull = () => {
   const navigate = useNavigate();
   const [name, setname] = useState("");
   const [response, setResponse] = useState("");
+  const submitButtonRef = useRef(null);
 
   const postData = async (event) => {
     event.preventDefault();
@@ -26,6 +27,21 @@ export const Updatefull = () => {
       console.error("Error posting data:", error);
     }
   };
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+   
+        event.preventDefault();
+    
+        submitButtonRef.current.click();
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, []);
 
   return (
     <form onSubmit={postData}>
@@ -51,8 +67,8 @@ export const Updatefull = () => {
         </label> */}
       </div>
       <div className="submit-buttons">
-        <input type="submit" value="Back" onClick={() => navigate("/")} />
-        <input type="submit" value="Submit" />
+        <input  type="submit" value="Back" onClick={() => navigate("/")} />
+        <input ref={submitButtonRef} type="submit" value="Submit" />
       </div>
       {response && <p> {"WorkSpace Updated"}</p>}
     </form>
